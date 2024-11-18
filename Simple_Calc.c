@@ -11,7 +11,7 @@ int main(void)
 	int b = 100;
 	int sum = add(a,b);
 	int diff = sub(a,b);
-	float prod = mult(100.2,100.1);
+	float prod = mult(100.6,100.1);
 	int quot = div(a,b);
 	printf("Sum = %d\nDifference = %d\nProduct = %f\nQuotient = %d\n",sum,diff,prod,quot);
 	return 0;
