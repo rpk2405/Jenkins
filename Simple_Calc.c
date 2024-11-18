@@ -2,7 +2,7 @@
 
 int add(int a,int b);
 int sub(int a,int b);
-int mult(int a,int b);
+float mult(float a,float b);
 int div(int a, int b);
 
 int main(void)
@@ -11,9 +11,9 @@ int main(void)
 	int b = 100;
 	int sum = add(a,b);
 	int diff = sub(a,b);
-	int prod = mult(a,b);
+	float prod = mult(100.2,100.1);
 	int quot = div(a,b);
-	printf("Sum=%d\nDifference=%d\nProduct=%d\nQuotient=%d\n",sum,diff,prod,quot);
+	printf("Sum=%d\nDifference=%d\nProduct=%f\nQuotient=%d\n",sum,diff,prod,quot);
 	return 0;
 }
 
@@ -34,7 +34,7 @@ int sub(int a,int b)
 	}
 }
 
-int mult(int a,int b)
+float mult(float a,float b)
 {
 	return a*b;
 }
