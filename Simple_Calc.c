@@ -1,28 +1,28 @@
 #include <stdio.h>
 
-int add(int a,int b);
-int sub(int a,int b);
+int add(sint16 a,sint16 b);
+sint16 sub(sint16 a,sint16 b);
 float mult(float a,float b);
-int div(int a, int b);
+sint16 div(sint16 a, sint16 b);
 
-int main(void)
+sint16 main(void)
 {
-	int a = 100;
-	int b = 100;
-	int sum = add(a,b);
-	int diff = sub(a,b);
+	sint16 a = 100;
+	sint16 b = 100;
+	sint16 sum = add(a,b);
+	sint16 diff = sub(a,b);
 	float prod = mult(100.100,100.55);
-	int quot = div(a,b);
+	sint16 quot = div(a,b);
 	printf("Sum = %d\nDifference = %d\nProduct = %f\nQuotient = %d\n",sum,diff,prod,quot);
 	return 0;
 }
 
-int add(int a, int b)
+sint16 add(sint16 a, sint16 b)
 {
 	return a+b;
 }
 
-int sub(int a,int b)
+sint16 sub(sint16 a,sint16 b)
 {
 	if (a>b)
 	{
@@ -39,14 +39,15 @@ float mult(float a,float b)
 	return a*b;
 }
 
-int div(int a,int b)
+sint16 div(sint16 a,sint16 b)
 {
 	if (b!=0)
 	{
 		return a/b;
 	}
-	else
+	else{
 		return 0;
+	}
 }
 
 
