@@ -39,7 +39,7 @@ pipeline {
                     )
 
                     if "%KEIL_EXIT%"=="1" (
-                        findstr /i /c:"0 Error(s)" %BUILF_LOG% >nul
+                        findstr /i /c:"0 Error(s)" %WORKSPACE%\\%BUILD_LOG% >nul
 
                         if not errorlevel 1 (
                             echo BUILD SUCCESS: Warnings only.
