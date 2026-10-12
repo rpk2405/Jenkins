@@ -3,8 +3,8 @@ pipeline {
     environment
     {
         UV4="C:\\Users\\Raghu\\AppData\\Local\\Keil_v5\\UV4\\UV4.exe"
-        PROJ="%WORKSPACE%\\Sample_Project.uvprojx"
-        BUILD_LOG="%WORKSPACE%\\Build_log.log"
+        PROJ="Sample_Project.uvprojx"
+        BUILD_LOG="Build_log.log"
     }
     stages {
         stage('Check Variables') {
@@ -21,13 +21,13 @@ pipeline {
             {
                 bat '''
 
-                    if exist %BUILD_LOG% del %BUILD_LOG%
-                    
+                    if exist %WORKSPACE%\\%BUILD_LOG% del %WORKSPACE%\\%BUILD_LOG%
+
                     echo 'Cleaning Project
-                    %UV4% -c %PROJ%
+                    %UV4% -c %WORKSPACE%\\%PROJ%
 
                     echo 'Building Project'
-                    %UV4% -b %PROJ% -o %BUILD_LOG%
+                    %UV4% -b %WORKSPACE%\\%PROJ% -o %WORKSPACE%\\%BUILD_LOG%
 
                     echo 'Keil Error Code: %ERRORLEVEL%
                     
