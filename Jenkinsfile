@@ -29,7 +29,26 @@ pipeline {
                     echo 'Building Project'
                     %UV4% -b %WORKSPACE%\\%PROJ% -o %WORKSPACE%\\%BUILD_LOG%
 
-                    echo 'Keil Error Code: %ERRORLEVEL%
+                    set "KEIL_EXIT=%ERRORLEVEL%"
+
+                    echo Keil Exit Code: %KEIL_EXIT%
+
+                    if "%KEIL_EXIT%"=="0" (
+                        echo BUILD SUCCESS: No errors or warnings.
+                        exit /b 0
+                    )
+
+                    if "%KEIL_EXIT%"=="1" (
+                        findstr /i /c:"0 Error(s)" buildlog.log >nul
+
+                        if not errorlevel 1 (
+                            echo BUILD SUCCESS: Warnings only.
+                            exit /b 0
+                        )
+                    )
+
+                    echo BUILD FAILED: Check buildlog.log
+                    exit /b %KEIL_EXIT%
                     
                 '''
             }
