@@ -56,7 +56,8 @@ pipeline {
             {
                 success
                 {
-                    echo 'Build Successful'
+                    archiveArtifacts artifacts: '*.axf , %WORKSPACE%\\%BUILD_LOG%' ,
+                    fingerprint: true
                 }
             }
         }
