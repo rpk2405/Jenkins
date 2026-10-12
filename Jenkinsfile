@@ -20,13 +20,25 @@ pipeline {
             steps
             {
                 bat '''
+
+                    if exist %BUILD_LOG% del %BUILD_LOG%
+                    
                     echo 'Cleaning Project
                     %UV4% -c %PROJ%
 
                     echo 'Building Project'
                     %UV4% -b %PROJ% -o %BUILD_LOG%
+
+                    echo 'Keil Error Code: %ERRORLEVEL%
                     
                 '''
+            }
+            post
+            {
+                success
+                {
+                    echo 'Build Successful'
+                }
             }
         }
     }
