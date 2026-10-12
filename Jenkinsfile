@@ -56,7 +56,7 @@ pipeline {
             {
                 success
                 {
-                    archiveArtifacts artifacts: '*.axf , %WORKSPACE%\\%BUILD_LOG%' ,
+                    archiveArtifacts artifacts: '*.axf , %BUILD_LOG%' ,
                     fingerprint: true
                 }
             }
